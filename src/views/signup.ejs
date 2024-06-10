@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/main.css">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <nav>
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/signin">Sign In</a></li>
+      <li><a href="/signup" class="btn-signin">Sign Up</a></li>
+    </ul>
+  </nav>
+
+  <main class="main">
+    <div class="container">
+      <h1>Sign Up</h1>
+      <section class="form-section">
+        <form action="/signup" method="post">
+          <input type="text" name="username">
+          <input type="text" name="password">
+          <button type="submit" class="btn">Sign Up</button>
+          <% if (error) { %><p class="error">Error: <%= error %></p><% } %>
+          <p class="redirect">If you already have an account <a href="/signin" title="Sign In">Sign In</a></p>
+        </form>
+      </section>
+    </div>
+  </main>
+
+</body>
+
+</html>

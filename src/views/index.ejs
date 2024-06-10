@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/main.css">
+  <title><%= title %></title>
+</head>
+
+<body>
+
+  <nav>
+    <ul>
+      <li><a href="/">Home</a></li>
+      <% if (user) { %>
+        <li><a href="/dashboard">Dashboard</a></li>
+        <form action="/signout" method="post">
+          <button type="submit" class="btn-signin">Sign Out</button">
+        </form>
+      <% } else { %>
+        <li><a href="/signin">Sign In</a></li>
+        <li><a href="/signup" class="btn-signin">Sign Up</a></li>
+      <% } %>
+    </ul>
+  </nav>
+
+  <main class="main">
+    <div class="container">
+      <h1>Home page</h1>
+      <% if (user) { %> <h2> Welcome: <%= user %> </h2> <% } %>
+      <!-- <section class="form-section">
+        <form action="/signout" method="post">
+          <button type="submit" class="btn">Sign Out</button>
+        </form>
+      </section> -->
+    </div>
+  </main>
+
+</body>
+
+</html>
