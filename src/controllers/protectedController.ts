@@ -7,7 +7,6 @@ interface User {
   id: string;
 }
 
-
 export const dashboard = (req: Request, res: Response) => {
   // Get token from cookie
   const token = req.cookies.token

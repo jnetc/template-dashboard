@@ -1,15 +1,13 @@
-// src/controllers/authController.ts
 import { Request, Response } from 'express';
 import fs from 'fs'
 import bcrypt from 'bcrypt'
+import 'express-session'
 
 interface User {
   username: string;
   password: string;
   id: string;
 }
-
-const accessTokenSecret = process.env.ACCESS_TOKEN_SECRET!;
 
 export const signin = (req: Request, res: Response) => {
   // If database doesn't exist
@@ -21,6 +19,7 @@ export const signin = (req: Request, res: Response) => {
   }
 
   const { username, password } = req.body;
+
   let errorMessage = '';
 
 
@@ -29,6 +28,7 @@ export const signin = (req: Request, res: Response) => {
   const users = JSON.parse(db) as Array<User>
 
   // Find user in db
+
   const user = users.find((user) => {
     const userExist = user.username === username ? user : null
     if (!userExist) {
@@ -46,7 +46,11 @@ export const signin = (req: Request, res: Response) => {
   })
 
   if (user) {
+
     // Set cookie and redirect to main page
+    // req.session.cookie.signed = true
+    // req.session.isLogin = true;
+    // req.session.cookie = {signed: true,  ...req.session.cookie}
     res.cookie('token', user.id, { httpOnly: true, secure: true, sameSite: 'strict' })
     return res.redirect('/')
   } else {

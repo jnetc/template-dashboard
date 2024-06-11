@@ -8,8 +8,17 @@ interface User {
 }
 
 export const root = (req: Request, res: Response) => {
+
+  const isDatabaseExist = fs.existsSync('users.json')
+  if (!isDatabaseExist) {
+    res.clearCookie('token')
+    res.redirect('/signin')
+    return
+  }
   // Get token from cookie
   const token = req.cookies.token
+  // console.log('session_isLogin:',req.session.isLogin);
+  // console.log('session_cookie:',req.cookies['connect.sid']);
 
   // Get data from somewhere
   const db = fs.readFileSync('users.json', { encoding: 'utf-8' })

@@ -1,14 +1,45 @@
 {
   "compilerOptions": {
-    "target": "ES6",
-    "module": "commonjs",
+    "target": "es6",
+    "lib": [
+      "es6",
+      "dom"
+    ],
+    "baseUrl": "./src",
     "outDir": "./dist",
-    "rootDir": "./src",
+    "module": "commonjs",
+    "moduleResolution": "node",
     "strict": true,
+    "declaration": false,
+    "sourceMap": true,
+    "inlineSources": true,
+    // "types": [
+    //   "node",
+    //   "express",
+    //   "express-session"
+    // ],
+    "stripInternal": true,
+    "incremental": true,
+    "skipLibCheck": true,
+    // "importsNotUsedAsValues": "error",
+    "inlineSourceMap": false,
+    "noEmit": false,
     "esModuleInterop": true,
-    "skipLibCheck": true
+    "forceConsistentCasingInFileNames": true,
+    "allowJs": true,
+    // "resolveJsonModule": true,
+    // "isolatedModules": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "pretty": true,
   },
   "include": [
-    "src"
-  ]
+    "src",
+    // "src/typings",
+  ],
+  "typeRoots": [
+    "./src/typings",
+    "./node_modules/@types",
+  ],
 }
