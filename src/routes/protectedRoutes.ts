@@ -1,13 +1,16 @@
 import express from 'express';
 import authMiddleware from '../middlewares/authMiddleware';
-import { dashboard, analytics, manage, settings, support } from '../controllers/protectedController';
+import { dashboard, chat, marketplace, fileManager, sessions, documentation, shareReferral, support } from '../controllers/protectedController';
 
 const router = express.Router();
 
 router.get('/dashboard', authMiddleware, dashboard)
-router.get('/analytics', authMiddleware, analytics)
-router.get('/manage', authMiddleware, manage)
-router.get('/settings', authMiddleware, settings)
+router.get('/chat', authMiddleware, chat)
+router.get('/marketplace', authMiddleware, marketplace)
+router.get('/file-manager', authMiddleware, fileManager)
+router.get('/sessions', authMiddleware, sessions)
+router.get('/documentation', authMiddleware, documentation)
+router.get('/share-referral', authMiddleware, shareReferral)
 router.get('/support', authMiddleware, support)
 
 export const protectedRoutes = router;

@@ -13,26 +13,34 @@
   <nav>
     <ul>
       <li><a href="/">Home</a></li>
-      <li> <button class="btn-signin"><%= user %></button> </li>
+      <li>
+        <button class="btn-signin"><%= user %></button>
+      </li>
     </ul>
   </nav>
 
   <aside>
     <div class="aside__top">
-      <h2>Hello <%= user %></h2>
+      <h2>Eiffers</h2>
+      <h3>Welcome: <%= user %></h3>
     </div>
 
     <ul class="aside__center">
       <li><a href="/dashboard">Dashboard</a></li>
-      <li><a href="/analytics">Analytics</a></li>
-      <li><a href="/manage">Manage</a></li>
-      <li><a href="/settings">Settings</a></li>
-      <li><a href="/support" class="active">Support</a></li>
+      <li><a href="/chat">Eiffels Chat</a></li>
+      <li><a href="/marketplace">Marketplace</a></li>
+      <li><a href="/file-manager">File Manager</a></li>
+      <li><a href="/sessions">Sessions</a></li>
     </ul>
 
-    <form action="/signout" method="post" class="aside__bottom">
-      <button type="submit" class="btn-signin">Sign Out</button">
-    </form>
+    <ul class="aside__bottom">
+      <li><a href="/documentation">Documentation</a></li>
+      <li><a href="/support" class="active">Support</a></li>
+      <li><a href="/share-referral">Share referral</a></li>
+      <form action="/signout" method="post" class="aside__bottom">
+        <button type="submit" class="btn-signin">Sign Out</button">
+      </form>
+    </ul>
   </aside>
 
   <main>

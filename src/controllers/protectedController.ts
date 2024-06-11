@@ -23,7 +23,7 @@ export const dashboard = (req: Request, res: Response) => {
     user: user?.username,
   });
 }
-export const analytics = (req: Request, res: Response) => {
+export const chat = (req: Request, res: Response) => {
   // Get token from cookie
   const token = req.cookies.token
 
@@ -34,12 +34,12 @@ export const analytics = (req: Request, res: Response) => {
   // Find user in db by id
   const user = users.find((u) => u.id === token)
   // Show main page with username
-  res.render('analytics', {
-    title: 'Analytics',
+  res.render('chat', {
+    title: 'Eiffel Chat',
     user: user?.username,
   });
 }
-export const manage = (req: Request, res: Response) => {
+export const marketplace = (req: Request, res: Response) => {
   // Get token from cookie
   const token = req.cookies.token
 
@@ -50,12 +50,12 @@ export const manage = (req: Request, res: Response) => {
   // Find user in db by id
   const user = users.find((u) => u.id === token)
   // Show main page with username
-  res.render('manage', {
-    title: 'Manage',
+  res.render('marketplace', {
+    title: 'Marketplace',
     user: user?.username,
   });
 }
-export const settings = (req: Request, res: Response) => {
+export const fileManager = (req: Request, res: Response) => {
   // Get token from cookie
   const token = req.cookies.token
 
@@ -66,11 +66,62 @@ export const settings = (req: Request, res: Response) => {
   // Find user in db by id
   const user = users.find((u) => u.id === token)
   // Show main page with username
-  res.render('settings', {
-    title: 'Settings',
+  res.render('file-manager', {
+    title: 'File Manager',
     user: user?.username,
   });
 }
+export const sessions = (req: Request, res: Response) => {
+  // Get token from cookie
+  const token = req.cookies.token
+
+  // Get data from somewhere
+  const db = fs.readFileSync('users.json', { encoding: 'utf-8' })
+  const users = JSON.parse(db) as Array<User>
+
+  // Find user in db by id
+  const user = users.find((u) => u.id === token)
+  // Show main page with username
+  res.render('sessions', {
+    title: 'Sessions',
+    user: user?.username,
+  });
+}
+
+export const documentation = (req: Request, res: Response) => {
+  // Get token from cookie
+  const token = req.cookies.token
+
+  // Get data from somewhere
+  const db = fs.readFileSync('users.json', { encoding: 'utf-8' })
+  const users = JSON.parse(db) as Array<User>
+
+  // Find user in db by id
+  const user = users.find((u) => u.id === token)
+  // Show main page with username
+  res.render('documentation', {
+    title: 'Documentation',
+    user: user?.username,
+  });
+}
+
+export const shareReferral = (req: Request, res: Response) => {
+  // Get token from cookie
+  const token = req.cookies.token
+
+  // Get data from somewhere
+  const db = fs.readFileSync('users.json', { encoding: 'utf-8' })
+  const users = JSON.parse(db) as Array<User>
+
+  // Find user in db by id
+  const user = users.find((u) => u.id === token)
+  // Show main page with username
+  res.render('share-referral', {
+    title: 'Share referral',
+    user: user?.username,
+  });
+}
+
 export const support = (req: Request, res: Response) => {
   // Get token from cookie
   const token = req.cookies.token

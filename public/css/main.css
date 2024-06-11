@@ -72,13 +72,21 @@ a {
   padding-block: 2rem;
 }
 
-.aside__center a {
+.dashboard .aside__bottom {
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+  padding-block: 2rem;
+}
+
+.aside__center a,
+.aside__bottom a {
   display: flex;
   padding: 1rem;
   border-radius: .5rem;
   font-size: 1.125rem;
 }
-.aside__center a.active{
+aside a.active {
   background-color: #805ddc;
   color: white;
 }

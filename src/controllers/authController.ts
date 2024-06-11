@@ -52,7 +52,7 @@ export const signin = (req: Request, res: Response) => {
     // req.session.isLogin = true;
     // req.session.cookie = {signed: true,  ...req.session.cookie}
     res.cookie('token', user.id, { httpOnly: true, secure: true, sameSite: 'strict' })
-    return res.redirect('/')
+    return res.redirect('/dashboard')
   } else {
     res.render('signin', { title: 'Sign In', user: null, error: errorMessage });
   }
